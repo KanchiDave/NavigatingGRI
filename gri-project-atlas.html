@@ -1,4 +1,4 @@
-<title>GRI Project Atlas</title>
+<title>NavigatingGRI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
@@ -182,9 +182,9 @@ svg.hl .node.on{opacity:1}
 
 <div class="wrap">
   <header>
-    <div class="eyebrow">SUMA PS5025 · Term project · GRI Standards 2021</div>
-    <h1>GRI Project Atlas</h1>
-    <p class="lede">Four views of the same project. The <b>Question flow</b> walks through every yes/no decision from the first client conversation to the submitted report. The <b>Map</b> links each person to the disclosures they can answer and the documents to request. <b>Materiality</b> narrows the Topics Menu to your 6–10 topics. The <b>Work plan</b> shows which work can run in parallel and where you need client sign-off.</p>
+    <div class="eyebrow">A working guide to reporting with the GRI Standards 2021</div>
+    <h1>NavigatingGRI</h1>
+    <p class="lede">Four views of one GRI reporting engagement. The <b>Question flow</b> walks through every yes/no decision from kickoff to the published report. The <b>Map</b> links each person to the disclosures they can answer and the documents to request. <b>Materiality</b> narrows the GRI topics to the ones that matter most for the organization. The <b>Work plan</b> shows which work can run in parallel and where the organization needs to sign off.</p>
   </header>
 
   <nav class="tabs" role="tablist">
@@ -233,18 +233,18 @@ svg.hl .node.on{opacity:1}
       <div class="card" style="display:grid;gap:12px">
         <div class="row" style="justify-content:space-between"><h2 style="font-size:19px">Materiality matrix</h2><span id="count" class="count"></span></div>
         <svg id="matrix" viewBox="0 0 400 380" role="img" aria-label="Topics plotted by impact significance and stakeholder concern"></svg>
-        <p class="note">GRI 3 ranks topics by the <b>significance of the organization's impacts</b> on the economy, environment and people (severity and likelihood). Use stakeholder concern (template step 7) to test that ranking. It should not replace it. Shaded cells score 7 or more combined.</p>
+        <p class="note">GRI 3 ranks topics by the <b>significance of the organization's impacts</b> on the economy, environment and people (severity and likelihood). Use stakeholder concern to test that ranking. It should not replace it. Shaded cells score 7 or more combined.</p>
         <div class="row"><button class="btn ghost" id="m-example">Load example scores</button><button class="btn ghost" id="m-clear">Clear all scores</button></div>
       </div>
       <div class="card" style="display:grid;gap:10px">
-        <div id="m-banner" class="banner" hidden>These are example scores for a generic mid-size organization. Replace them with scores from your client workshop.</div>
+        <div id="m-banner" class="banner" hidden>These are example scores for a generic mid-size organization. Replace them with scores from your own materiality workshop.</div>
         <div style="overflow-x:auto"><table class="ttable" id="ttable"></table></div>
       </div>
     </div>
   </section>
 
   <section id="v-workplan" class="view" hidden>
-    <p class="note" style="margin-bottom:12px">The GRI 2 general disclosures don't depend on materiality, so start them in phase 2. Only the topic disclosures wait for the client to agree the 6–10 material topics. Step numbers refer to the 12 steps in the course template.</p>
+    <p class="note" style="margin-bottom:12px">The GRI 2 general disclosures don't depend on materiality, so start them in phase 2. Only the topic disclosures wait until the material topics are agreed.</p>
     <div class="scroll"><div class="lanes" id="lanes"></div></div>
   </section>
 </div>
@@ -263,7 +263,7 @@ const SECTIONS=[
  {id:'s21',label:'GRI 2 · Organization & reporting'},{id:'s22',label:'GRI 2 · Activities & workers'},
  {id:'s23',label:'GRI 2 · Governance'},{id:'s24',label:'GRI 2 · Strategy, policies & practices'},
  {id:'s25',label:'GRI 2 · Stakeholder engagement'},{id:'s3',label:'GRI 3 · Material topics'},
- {id:'st',label:'Topic standards · 6–10 topics'}];
+ {id:'st',label:'Topic standards · material topics only'}];
 const EFFORT=['','Already documented','Needs internal data','Needs a new process'];
 const DISC=[
  {id:'2-1',sec:'s21',t:'Organizational details',p:['exec','legal'],e:['pub'],d:1,q:['What is the full legal name, the nature of ownership and the legal form?','Where is headquarters, and in which countries do you operate?']},
@@ -297,7 +297,7 @@ const DISC=[
  {id:'2-29',sec:'s25',t:'Stakeholder engagement',p:['comms','sust','ext'],e:['survey'],d:2,q:['Which stakeholder groups do you engage, how were they identified, and why?','How do you make sure engagement is meaningful?']},
  {id:'2-30',sec:'s25',t:'Collective bargaining',p:['hr'],e:['hris'],d:1,q:['What % of employees are covered by collective bargaining agreements? How are terms set for those who are not?']},
  {id:'3-1',sec:'s3',t:'Materiality process',p:['sust','exec','ext'],e:['survey'],d:3,q:['How will we identify actual and potential, positive and negative impacts across activities and business relationships?','How will impacts be prioritized, and which stakeholders and experts take part?']},
- {id:'3-2',sec:'s3',t:'Material topics list',p:['sust','exec'],e:['survey'],d:2,q:['Which 6–10 topics are material? What changed from last period?']},
+ {id:'3-2',sec:'s3',t:'Material topics list',p:['sust','exec'],e:['survey'],d:2,q:['Which topics are material? What changed from last period?']},
  {id:'3-3',sec:'s3',t:'Managing each topic',p:['sust','ops','hr','proc'],e:['pol','meter'],d:3,q:['For each topic: what are the impacts, and are you involved through your own activities or business relationships?','Which policies apply, what actions prevent or address impacts, and which goals and indicators track progress?']},
  {id:'200',sec:'st',series:'econ',t:'Economic topics (201–207)',p:['cfo','proc','legal'],e:['fin','sup'],d:2,q:['201-1: economic value generated and distributed.','204-1: share of spending on local suppliers.','205-2/205-3: anti-corruption training and confirmed incidents.']},
  {id:'300',sec:'st',series:'env',t:'Environmental topics (301–308)',p:['ops','proc','sust'],e:['meter','sup'],d:3,q:['302-1: energy consumed inside the organization (fuel, electricity, heating).','303-3 / 306-3: water withdrawn and waste generated by type.','305-1/2/3: Scope 1, 2 and 3 greenhouse gas emissions.']},
@@ -383,7 +383,7 @@ function renderPanel(){
     <div><h3>Ask</h3><div class="row" style="margin-top:6px">${tags(d.p,'p',PI)}</div></div>
     <div><h3>Request</h3><div class="row" style="margin-top:6px">${tags(d.e,'e',EI)}</div></div>
     <div class="group"><h3>Questions</h3>${qs(d)}</div>
-    ${d.sec==='st'?'<p class="meta">Report 3-3 plus at least one full topic disclosure for each material topic. Choose topics on the Materiality tab.</p>':''}
+    ${d.sec==='st'?'<p class="meta">For each material topic, report 3-3 and every disclosure in its Topic Standard, or a reason for omission. Choose topics on the Materiality tab.</p>':''}
     <button class="btn ghost" data-sel="">Back to overview</button>`;return}
   if(t==='p'){const p=PI[id],ds=DISC.filter(d=>d.p.includes(id));const ev=[...new Set(ds.flatMap(d=>d.e))];
     const nq=ds.reduce((a,d)=>a+d.q.length,0),done=ds.reduce((a,d)=>a+d.q.filter((_,i)=>store.asked[d.id+':'+i]).length,0);
@@ -443,7 +443,7 @@ function renderMatrix(){
     h+=`<g><title>${esc(t.code+' '+t.name)}</title><circle cx="${cx}" cy="${cy}" r="9.5" fill="${v.r?`var(--${t.s})`:'var(--surface)'}" stroke="var(--${t.s})" stroke-width="1.6"/><text class="dl${v.r?' on':''}" x="${cx}" y="${cy+3}" text-anchor="middle" style="fill:${v.r?'var(--surface)':'var(--ink)'}">${t.code}</text></g>`})});
   m.innerHTML=h;
   const n=ALLT.filter(t=>store.topics[t.code]&&store.topics[t.code].r).length,c=document.getElementById('count');
-  c.textContent=`${n} selected · target 6–10`;c.classList.toggle('warn',n<6||n>10);
+  c.textContent=`${n} selected · a focused report usually has 6–10`;c.classList.toggle('warn',n<3||n>15);
   document.getElementById('m-banner').hidden=!store.topicsExample;
 }
 document.getElementById('ttable').addEventListener('change',e=>{const el=e.target,code=el.dataset.t;if(!code)return;
@@ -453,7 +453,7 @@ document.getElementById('m-example').onclick=()=>{store.topics=exampleTopics();s
 document.getElementById('m-clear').onclick=()=>{store.topics={};store.topicsExample=false;save();renderTable();renderMatrix()};
 
 /* ---------- Work plan ---------- */
-const PHASES=[['Orient','Steps 1–3'],['Organize','Steps 4–5'],['Prioritize','Steps 6–8'],['Collect','Steps 9–10'],['Tell & index','Steps 11–12']];
+const PHASES=[['Orient','Scope & standards'],['Organize','Team & owners'],['Prioritize','Materiality'],['Collect','Data & interviews'],['Tell & index','Report']];
 const LANES=[
  ['--g2','A · General disclosures','GRI 2 · 30 disclosures',[
    ['Read GRI 2 and rate each disclosure by effort (Map filters).'],
@@ -464,19 +464,19 @@ const LANES=[
    [['2-1','2-3','2-6'],['2-9'],['2-1','2-5','2-9','2-11','2-23','2-28'],['2-7','2-8','2-21','2-27','2-30'],['2-22']]],
  ['--g3','B · Material topics','GRI 3 + 200/300/400',[
    ['Read GRI 1 (8 principles) and GRI 3 guidance.','Check whether a Sector Standard applies.'],
-   ['Draft a long list of impacts from the Topics Menu and sector standard.'],
+   ['Draft a long list of impacts from the GRI topic list and sector standard.'],
    ['Internal workshop: score impact significance.','Stakeholder input to test the ranking.','List disclosures for each topic.'],
-   ['For each of 6–10 topics: 3-3 management approach plus at least one full topic disclosure.','Record reasons for omission.'],
+   ['For each material topic: 3-3 management approach plus the disclosures in its Topic Standard.','Record reasons for omission where data is missing.'],
    ['Write topic chapters with data, targets and trends.']],
    [[],['3-1'],['3-1','3-2'],['3-3','200','300','400'],[]]],
  ['--accent','C · Report & index','Scope, sign-off, story',[
-   ['Agree scope with the client: entities, reporting period, contact point.'],
+   ['Agree scope with leadership: entities, reporting period, contact point.'],
    ['Set the deadline and project plan.','Form the reporting team; keep one status tracker.'],
    ['Shortlist organizing themes for the story.'],
-   ['Check, re-check, and get client sign-off on the data.'],
+   ['Check, re-check, and get leadership sign-off on the data.'],
    ['Narrative, layout mock-up, GRI content index with page references.']],
    [['2-2','2-3'],[],[],['2-14'],[]]]];
-const GATES=['','Team, owners and interview list agreed','Client agrees the 6–10 material topics','Client signs off the data',''];
+const GATES=['','Team, owners and interview list agreed','Leadership agrees the material topics','Leadership signs off the data',''];
 function renderLanes(){
   let h='<div class="ph"></div>'+PHASES.map((p,i)=>`<div class="ph"><span>Phase ${i+1} · ${p[1]}</span><b>${p[0]}</b></div>`).join('');
   LANES.forEach(([c,name,sub,cells,refs])=>{h+=`<div class="lh" style="--c:var(${c})">${name}<small>${sub}</small></div>`;
@@ -491,15 +491,15 @@ document.getElementById('lanes').addEventListener('click',e=>{const b=e.target.c
 // type: fix (No = do the fix, then answer Yes) · choice (either answer moves on) · gate (No = loop back)
 const FLOW=[
  ['Phase 1 · Orient',[
-  {id:'client',q:'Has the organization agreed to take part and named one main contact?',who:['Course instructor','CEO / Executive Director'],no:'Pitch the project and agree access to people and data. If they decline, choose another organization.'},
+  {id:'client',q:'Has leadership committed to the report and named a project sponsor?',who:['CEO / Executive Director'],no:'Agree the purpose, audience and access to people and data. Do not start data collection without a sponsor.'},
   {q:'Have we agreed which entities the report covers?',refs:['2-2'],who:['Finance / CFO'],no:'List subsidiaries, sites or chapters from the audited financials and decide how data will be consolidated.'},
   {q:'Is the reporting period fixed, and does it match the financial year?',refs:['2-3'],who:['Finance / CFO'],no:'Choose the calendar or fiscal year. If it differs from financial reporting, write down why.'},
-  {q:'Has the team read the template, GRI 1 and its 8 principles?',who:['Reporting team'],no:'Read them and mark each template item easy or hard (Map filters help).'},
-  {type:'choice',q:'Does a GRI Sector Standard apply to this organization?',who:['Sustainability / EHS','GRI website'],yes:'Use its list of likely material topics as your starting long list.',no:'Use the Topics Menu as your long list. Continue.'}]],
+  {q:'Has the reporting team reviewed GRI 1 (the 8 principles), GRI 2 and GRI 3?',who:['Reporting team'],no:'Review them and rate each disclosure by effort (Map filters help).'},
+  {type:'choice',q:'Does a GRI Sector Standard apply to this organization?',who:['Sustainability / EHS','GRI website'],yes:'Use its list of likely material topics as your starting long list.',no:'Use the GRI topic list as your long list. Continue.'}]],
  ['Phase 2 · Organize',[
-  {q:'Is there a named owner for every GRI 2 disclosure?',who:['Main client contact'],no:'Use the Map to assign owners. Every disclosure needs one person.'},
-  {q:'Is there a deadline and project plan agreed with the client?',who:['Main client contact','Course instructor'],no:'Set the report deadline and work back to interview and sign-off dates.'},
-  {q:'Are interviews booked with every owner?',who:['Main client contact'],no:'Book them, starting with whoever owns the most disclosures (Map overview).'}]],
+  {q:'Is there a named owner for every GRI 2 disclosure?',who:['Project sponsor'],no:'Use the Map to assign owners. Every disclosure needs one person.'},
+  {q:'Is there an agreed deadline and project plan?',who:['Project sponsor'],no:'Set the report deadline and work back to interview and sign-off dates.'},
+  {q:'Are interviews booked with every owner?',who:['Project sponsor'],no:'Book them, starting with whoever owns the most disclosures (Map overview).'}]],
  ['Phase 3 · General disclosures (GRI 2)',[
   {q:'Is the organization profile available in public documents?',refs:['2-1','2-6','2-28'],who:['Communications','CEO / Executive Director'],no:'Cover legal form, locations, value chain and memberships in the CEO interview.'},
   {q:'Can HR give employee numbers by gender, region and contract type?',refs:['2-7','2-8','2-30'],who:['HR lead'],no:'Use period-end headcount, explain the method, and give "information unavailable" as the reason for any missing breakdown.'},
@@ -514,20 +514,20 @@ const FLOW=[
   {q:'Have we listed actual and potential, positive and negative impacts across activities and the value chain?',refs:['3-1'],who:['Operations & facilities','Procurement','Sustainability / EHS'],no:'Run an internal workshop using the long list from phase 1.'},
   {q:'Have internal and external stakeholders commented on the list?',refs:['2-29'],who:['Communications','External stakeholders'],no:'Run a short survey or 3–5 stakeholder interviews.'},
   {id:'score',q:'Has each impact been scored for significance (severity and likelihood)?',who:['Reporting team','Sustainability / EHS'],no:'Score them on the Materiality tab.'},
-  {q:'Do we have between 6 and 10 material topics?',who:['Reporting team'],no:'Too many: merge related topics. Too few: revisit the mid-scoring ones.'},
-  {type:'gate',q:'Has the client agreed the list of material topics?',refs:['3-2'],who:['CEO / Executive Director','Main client contact'],no:'Revise with the client.',back:'score'}]],
+  {q:'Is the list of material topics focused enough to report well (often 6–10)?',who:['Reporting team'],no:'Too many: merge related topics. Too few: revisit the mid-scoring ones.'},
+  {type:'gate',q:'Has leadership agreed the list of material topics?',refs:['3-2'],who:['CEO / Executive Director','Project sponsor'],no:'Revise with leadership.',back:'score'}]],
  ['Phase 5 · Topic data (repeat for each topic)',[
   {id:'topic',q:'Is there a policy or commitment covering this topic?',refs:['3-3'],who:['Topic owner'],no:'Report that the topic is not yet managed and describe any plans.'},
-  {q:'Is data available for at least one full topic disclosure (for example 302-1)?',refs:['200','300','400'],who:['Operations & facilities','HR lead','Finance / CFO'],no:'Choose another disclosure in that standard, or give a reason for omission and recommend measuring it.'},
+  {q:'Is data available for each disclosure in the topic\u2019s Standard (for example 302-1 to 302-5 for Energy)?',refs:['200','300','400'],who:['Operations & facilities','HR lead','Finance / CFO'],no:'Report what exists. For the rest, give a reason for omission (not applicable, confidentiality, legal prohibition, information unavailable) and plan to measure it.'},
   {q:'Are there goals, targets or indicators that track progress?',refs:['3-3'],who:['Topic owner'],no:'Report that none exist and recommend targets.'},
   {type:'gate',q:'Have all material topics been covered?',who:['Reporting team'],no:'Move to the next topic.',back:'topic'},
-  {type:'gate',q:'Has the client signed off all collected data? (step 10)',who:['Main client contact','CEO / Executive Director'],no:'Correct the data, check it again, and resubmit.',back:'topic'}]],
+  {type:'gate',q:'Has leadership signed off all collected data?',who:['Project sponsor','CEO / Executive Director'],no:'Correct the data, check it again, and resubmit.',back:'topic'}]],
  ['Phase 6 · Tell & index',[
   {q:'Have we chosen an organizing theme for the story?',who:['Reporting team','Communications'],no:'Build it around the strongest material topics.'},
   {q:'Is every GRI claim in the text tagged with its disclosure number?',who:['Reporting team'],no:'Add the tags now. The index depends on them.'},
-  {q:'Does the draft meet the 8 principles, including reporting negative impacts for balance?',who:['Reporting team','Course instructor'],no:'Revise the sections that read one-sided or lack context.'},
+  {q:'Does the draft meet the 8 principles, including reporting negative impacts for balance?',who:['Reporting team','Project sponsor'],no:'Revise the sections that read one-sided or lack context.'},
   {q:'Is the GRI content index complete, with page references and reasons for omission?',who:['Reporting team'],no:'Complete the index from the tags.'},
-  {q:'Has the client approved the layout and design mock-up?',who:['Communications','CEO / Executive Director'],no:'Revise and resubmit the mock-up.'}]]];
+  {q:'Has leadership approved the layout and design mock-up?',who:['Communications','CEO / Executive Director'],no:'Revise and resubmit the mock-up.'}]]];
 let fn=0;const FSTEPS=[];FLOW.forEach(([,s])=>s.forEach(x=>{x.n=++fn;x.type=x.type||'fix';FSTEPS.push(x)}));
 const FID=Object.fromEntries(FSTEPS.filter(x=>x.id).map(x=>[x.id,x]));
 store.flow=store.flow||{};
